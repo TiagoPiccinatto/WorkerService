@@ -9,8 +9,6 @@ services:
     restart: always
     networks:
       - proxy
-    depends_on:
-      - rabbitmq
     environment:
       RABBIT_HOST: rabbitmq
       RABBIT_USER: admin
