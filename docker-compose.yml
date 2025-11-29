@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  github-worker:
+    container_name: github-worker
+    build:
+      context: /opt/GithubWorker
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - proxy
+    depends_on:
+      - rabbitmq
+    environment:
+      RABBIT_HOST: rabbitmq
+      RABBIT_USER: admin
+      RABBIT_PASS: admin123
+      RABBIT_PORT: 5672
+
+networks:
+  proxy:
+    external: true
