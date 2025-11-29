@@ -4,7 +4,6 @@ services:
   github-worker:
     container_name: github-worker
     build:
-      context: /opt/GithubWorker
       dockerfile: Dockerfile
     restart: always
     networks:
